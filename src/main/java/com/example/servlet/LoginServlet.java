@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         if(session.getAttribute("user") == null) {
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("/login.jsp");
         } else {
             response.sendRedirect("/user/hello.jsp");
         }
@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("user", login);
             response.sendRedirect("/user/hello.jsp");
         } else {
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
     }
 }
